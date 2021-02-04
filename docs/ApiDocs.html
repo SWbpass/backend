@@ -641,7 +641,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2021-02-05T00:17:12.9732469",
+  "timestamp" : "2021-02-05T00:20:22.8034062",
   "status" : 202,
   "error" : "0001",
   "message" : "ID: TestUser1 이미 사용중인 아이디입니다."
@@ -657,7 +657,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2021-02-05T00:17:11.2432429",
+  "timestamp" : "2021-02-05T00:20:21.3580596",
   "status" : 403,
   "error" : "0002",
   "message" : "ID: TestUser1 회원가입이 되어있지 않거나 잠긴 계정입니다."
@@ -673,7 +673,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2021-02-05T00:17:09.5863939",
+  "timestamp" : "2021-02-05T00:20:19.7541125",
   "status" : 403,
   "error" : "0005",
   "message" : "잘못된 인증입니다."
@@ -758,7 +758,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDUxODMxfQ.mcVISGN0l10GvCvJBuGeW-nqfIOzV9qRprP7jHJd_BE"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDUyMDIxfQ.En9RxxWRsgtCl85zzcxGeEsUZoJbvJpJjpO3gILsduU"
 }</code></pre>
 </div>
 </div>
@@ -815,7 +815,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDUxODMyfQ.aw-4rMtt7AOHqGsd-zM1PJeeutJ_edgzkoZt1eDBjW4"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDUyMDIyfQ.nwAi4W5_MAnlzo4oU6_r-L7qpEGsIbratK386Kqcf8I"
 }</code></pre>
 </div>
 </div>
@@ -832,7 +832,7 @@ Content-Length: 173
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /auth/signup HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Content-Length: 275
+Content-Length: 309
 Host: templet.restapi.com
 
 {
@@ -842,10 +842,10 @@ Host: templet.restapi.com
   "phoneNumber" : "전화번호~",
   "address" : "집주소",
   "role" : "ROLE_USER",
-  "storePhoneNumber" : null,
-  "storeName" : null,
-  "latitude" : null,
-  "longitude" : null
+  "storePhoneNumber" : "매장번호",
+  "storeName" : "매장이름",
+  "latitude" : "위도값",
+  "longitude" : "경도값"
 }</code></pre>
 </div>
 </div>
@@ -872,7 +872,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDUxODMyfQ.aw-4rMtt7AOHqGsd-zM1PJeeutJ_edgzkoZt1eDBjW4"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDUyMDIyfQ.nwAi4W5_MAnlzo4oU6_r-L7qpEGsIbratK386Kqcf8I"
 }</code></pre>
 </div>
 </div>
@@ -927,14 +927,14 @@ X-Frame-Options: DENY</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /visits HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ1MTgyMH0.E_e2kya4nFTuWH2ITiGmL-w-x1K-u9z5l2lOFuFufJY
-Content-Length: 89
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ1MjAxMH0._imQet8ODFQ057bIxPeUzs_jG9PmBBCEW0S4ymYO8ns
+Content-Length: 88
 Host: templet.restapi.com
 
 {
   "storeId" : 1,
   "visitorId" : 1,
-  "entryTime" : "2021-02-05T00:17:00.8704003"
+  "entryTime" : "2021-02-05T00:20:10.665351"
 }</code></pre>
 </div>
 </div>
@@ -986,7 +986,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /visits/4 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ1MTgyNX0.w3f6aoFa8FDBxyD0pq4p9DP3AztKJ94Idi8g4OmGUow
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ1MjAxNX0.aHDTO7-YUlLRmlKCdhn1TfwzUKmVPnGDWAK25hogMOM
 Host: templet.restapi.com</code></pre>
 </div>
 </div>
@@ -1027,8 +1027,8 @@ Content-Length: 865
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-04T22:17:05.4011816",
-    "exitTime" : "2021-02-05T00:17:05.4041952"
+    "entryTime" : "2021-02-04T22:20:15.4892761",
+    "exitTime" : "2021-02-05T00:20:15.4922774"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1043,8 +1043,8 @@ Content-Length: 865
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-04T22:17:05.4081792",
-    "exitTime" : "2021-02-05T00:17:05.410179"
+    "entryTime" : "2021-02-04T22:20:15.496289",
+    "exitTime" : "2021-02-05T00:20:15.4982794"
   } ]
 }</code></pre>
 </div>
@@ -1066,7 +1066,7 @@ Content-Length: 865
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /visits HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjUiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxMjQ1MTgyM30.ZZsFR_RAJUPw0k9XwyYOMQEKjlrVrjCDWyTr2sq0xYA
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjUiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxMjQ1MjAxM30.a3VBL4YpBX2M5OPrtjBxiNAAxsr-Ja27XAZwuaFceUk
 Host: templet.restapi.com</code></pre>
 </div>
 </div>
@@ -1107,8 +1107,8 @@ Content-Length: 1707
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-04T22:17:03.3475377",
-    "exitTime" : "2021-02-05T00:17:03.3505348"
+    "entryTime" : "2021-02-04T22:20:13.4902779",
+    "exitTime" : "2021-02-05T00:20:13.4942786"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1123,8 +1123,8 @@ Content-Length: 1707
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-04T22:17:03.3565652",
-    "exitTime" : "2021-02-05T00:17:03.3585352"
+    "entryTime" : "2021-02-04T22:20:13.499293",
+    "exitTime" : "2021-02-05T00:20:13.5012803"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1139,8 +1139,8 @@ Content-Length: 1707
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-04T22:17:03.3585352",
-    "exitTime" : "2021-02-05T00:17:03.360535"
+    "entryTime" : "2021-02-04T22:20:13.5022789",
+    "exitTime" : "2021-02-05T00:20:13.5052779"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1155,8 +1155,8 @@ Content-Length: 1707
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-04T22:17:03.3615353",
-    "exitTime" : "2021-02-05T00:17:03.3625355"
+    "entryTime" : "2021-02-04T22:20:13.5062785",
+    "exitTime" : "2021-02-05T00:20:13.5082781"
   } ]
 }</code></pre>
 </div>
@@ -1167,7 +1167,7 @@ Content-Length: 1707
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-05 00:04:32 +0900
+Last updated 2021-02-05 00:19:47 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">

@@ -114,7 +114,7 @@ operation::signup[snippets='http-request,http-response']
 
 `Post` 요청을 사용해서 회원가입을 할 수있다.
 
-operation::signup[snippets='http-request,http-response']
+operation::signup-store[snippets='http-request,http-response']
 
 
 [[checkid]]

@@ -47,6 +47,8 @@ class SignUpTest extends BaseControllerTest {
                 .role(UserRole.ROLE_USER)
                 .storeName("매장이름")
                 .storePhoneNumber("매장번호")
+                .latitude("위도값")
+                .longitude("경도값")
                 .build();
 
         this.mockMvc.perform(RestDocumentationRequestBuilders.post("/auth/signup")
