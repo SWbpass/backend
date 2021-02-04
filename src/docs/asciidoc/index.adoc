@@ -123,3 +123,25 @@ operation::signup[snippets='http-request,http-response']
 `Get` 요청을 사용해서 아이디 중복확인을 할 수있다.
 
 operation::idcheck[snippets='http-request,http-response']
+
+[[visit]]
+== 매장단말기
+
+[[entry]]
+=== 출입 기록하기
+operation::entry[snippets='http-request,http-response']
+
+[[exit]]
+=== 퇴장 기록하기
+operation::exit[snippets='http-request,http-response']
+
+[[visitLogs]]
+== 출입 기록 조회하기
+operation::visit[snippets='http-request,http-response']
+
+[[admin]]
+== 관리자
+
+[[admin-visit-logs]]
+== 출입 기록 조회(관리자)
+operation::admin-visit[snippets='http-request,http-response']

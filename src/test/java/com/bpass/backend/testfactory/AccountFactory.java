@@ -5,6 +5,7 @@ import com.bpass.backend.api.user.model.Users;
 import com.bpass.backend.api.user.model.UsersRepository;
 import com.bpass.backend.security.model.Account;
 import com.bpass.backend.security.model.UserStatus;
+import com.bpass.backend.security.model.dto.SignUpAdminDto;
 import com.bpass.backend.security.model.dto.SignUpDto;
 import com.bpass.backend.security.model.dto.SignUpStoreDto;
 import com.bpass.backend.security.model.dto.SignUpUserDto;
@@ -40,6 +41,21 @@ public class AccountFactory {
   }
 
   @Transactional
+  public SignUpDto generateAdmin(int index) {
+    SignInResponse response = authService.signUpAdmin(
+            new SignUpAdminDto(
+                    "TestUser" + index,
+                    "password",
+                    "테스트 유저 " + index,
+                    "010-1234-5678",
+                    "주소"
+            )
+    );
+    return new SignUpDto(response.getAccessToken(),usersRepository.findByUserIdAndState("TestUser" + index, UserStatus.NORMAL, Account.class)
+            .get().getId());
+  }
+
+  @Transactional
   public SignUpDto generateStore(int index) {
     SignInResponse response = authService.signUpStore(
             new SignUpStoreDto(
@@ -49,7 +65,9 @@ public class AccountFactory {
                     "010-1234-5678",
                     "주소",
                     "010-1234-5678",
-                    "매장명" + index
+                    "매장명" + index,
+                    "위도값",
+                    "경도값"
             )
     );
     return new SignUpDto(response.getAccessToken(),storeRepository.findByUserIdAndState("TestUser" + index, UserStatus.NORMAL, Account.class)

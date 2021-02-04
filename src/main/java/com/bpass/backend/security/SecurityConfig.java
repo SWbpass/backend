@@ -16,30 +16,32 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @RequiredArgsConstructor
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-  private final JwtTokenProvider jwtTokenProvider;
-  private final ObjectMapper objectMapper;
+    private final JwtTokenProvider jwtTokenProvider;
+    private final ObjectMapper objectMapper;
 
-  @Override
-  protected void configure(HttpSecurity http) throws Exception {
-    http.httpBasic().disable()
-        .cors().and()
-        .formLogin().disable()
-        .csrf().disable()
-        .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-        .and()
-        .authorizeRequests()
-        .antMatchers("/auth/*").permitAll()
-        .antMatchers(HttpMethod.GET, "/mustSignIn").hasRole("USER")
-        .antMatchers(HttpMethod.GET, "/**").permitAll()
-        .anyRequest().hasRole("USER")
-        .and()
-        .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, objectMapper),
-            UsernamePasswordAuthenticationFilter.class)
-    ;
-  }
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.httpBasic().disable()
+                .cors().and()
+                .formLogin().disable()
+                .csrf().disable()
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .and()
+                .authorizeRequests()
+                .antMatchers("/auth/*").permitAll()
+                .antMatchers(HttpMethod.POST,"/visits").hasRole("STORE")
+                .antMatchers(HttpMethod.PUT,"/visits").hasRole("STORE")
+                .antMatchers(HttpMethod.GET,"/visits/{storeId}").hasRole("STORE")
+                .antMatchers(HttpMethod.GET, "/visits").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/visits/{visiId}").hasRole("ADMIN")
+                .and()
+                .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, objectMapper),
+                        UsernamePasswordAuthenticationFilter.class)
+        ;
+    }
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return PasswordEncoderFactories.createDelegatingPasswordEncoder();
-  }
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return PasswordEncoderFactories.createDelegatingPasswordEncoder();
+    }
 }

@@ -80,7 +80,9 @@ public class AuthService {
                         signUpStoreDto.getAddress(),
                         signUpStoreDto.getStorePhoneNumber(),
                         signUpStoreDto.getStoreName(),
-                        Collections.singletonList(UserRole.ROLE_USER)
+                        Collections.singletonList(UserRole.ROLE_STORE),
+                        signUpStoreDto.getLatitude(),
+                        signUpStoreDto.getLongitude()
                 ));
 
         return generateSignInResponse(account);

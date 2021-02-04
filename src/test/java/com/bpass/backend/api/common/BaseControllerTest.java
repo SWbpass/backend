@@ -1,6 +1,7 @@
 package com.bpass.backend.api.common;
 
 import com.bpass.backend.testfactory.AccountFactory;
+import com.bpass.backend.testfactory.VisitFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Disabled;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,5 +30,8 @@ public class BaseControllerTest {
 
   @Autowired
   protected AccountFactory accountFactory;
+
+  @Autowired
+  protected VisitFactory visitFactory;
 
 }

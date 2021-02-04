@@ -1,4 +1,4 @@
-package com.bpass.backend.security.response;
+package com.bpass.backend.api.visit.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class RefreshResponse {
-  private String accessToken;
+public class SendPushResponse {
+  private int sendUsers;
 }

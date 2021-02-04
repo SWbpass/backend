@@ -25,16 +25,18 @@ public class SignUpRequest {
 
     private String storePhoneNumber;
     private String storeName;
+    private String latitude;
+    private String longitude;
 
     public SignUpUserDto toUserDto() {
-        return new SignUpUserDto(id,password,name,phoneNumber,address);
+        return new SignUpUserDto(id, password, name, phoneNumber, address);
     }
 
-    public SignUpStoreDto toStoreDto(){
-        return new SignUpStoreDto(id,password,name,phoneNumber,address,storePhoneNumber,storeName);
+    public SignUpStoreDto toStoreDto() {
+        return new SignUpStoreDto(id, password, name, phoneNumber, address, storePhoneNumber, storeName, latitude, longitude);
     }
 
     public SignUpAdminDto toAdminDto() {
-        return new SignUpAdminDto(id,password,name,phoneNumber,address);
+        return new SignUpAdminDto(id, password, name, phoneNumber, address);
     }
 }

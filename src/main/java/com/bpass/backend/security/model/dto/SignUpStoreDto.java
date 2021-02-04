@@ -13,4 +13,6 @@ public class SignUpStoreDto {
   private String address;
   private String storePhoneNumber;
   private String storeName;
+  private String latitude;
+  private String longitude;
 }
