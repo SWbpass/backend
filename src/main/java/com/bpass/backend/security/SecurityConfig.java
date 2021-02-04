@@ -30,10 +30,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                 .antMatchers("/auth/*").permitAll()
                 .antMatchers(HttpMethod.POST,"/visits").hasRole("STORE")
-                .antMatchers(HttpMethod.PUT,"/visits").hasRole("STORE")
+                .antMatchers(HttpMethod.PUT,"/visits/{visitId}").hasRole("STORE")
                 .antMatchers(HttpMethod.GET,"/visits/{storeId}").hasRole("STORE")
                 .antMatchers(HttpMethod.GET, "/visits").hasRole("ADMIN")
-                .antMatchers(HttpMethod.POST, "/visits/{visiId}").hasRole("ADMIN")
+                .antMatchers(HttpMethod.POST, "/visits/{visitId}").hasRole("ADMIN")
                 .and()
                 .addFilterBefore(new JwtAuthenticationFilter(jwtTokenProvider, objectMapper),
                         UsernamePasswordAuthenticationFilter.class)

@@ -1,8 +1,10 @@
 package com.bpass.backend.api.visit;
 
 import com.bpass.backend.api.common.BaseControllerTest;
+import com.bpass.backend.api.visit.model.Visits;
 import com.bpass.backend.api.visit.request.ExitRequest;
 import com.bpass.backend.security.model.UserRole;
+import com.bpass.backend.security.model.dto.SignUpDto;
 import com.bpass.backend.security.request.SignUpRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
@@ -25,19 +27,13 @@ class SendPushMessageTest extends BaseControllerTest {
     @DisplayName("푸시(성공)")
     void PushSuccess() throws Exception {
 
-        Long storeId = this.accountFactory.generateStore(1).getId();
+        SignUpDto store = this.accountFactory.generateStore(1);
         Long userId = this.accountFactory.generateUser(2).getId();
 
-        ExitRequest exitRequest = ExitRequest.builder()
-                .storeId(storeId)
-                .visitorId(userId)
-                .entryTime(LocalDateTime.now().minusHours(2))
-                .exitTime(LocalDateTime.now())
-                .build();
+        Visits visit = this.visitFactory.generateVisit(userId,store.getId());
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/visits")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(this.objectMapper.writeValueAsString(exitRequest)))
+
+        this.mockMvc.perform(RestDocumentationRequestBuilders.post("/visits/{visitId}",visit.getId()))
                 .andExpect(status().isOk())
                 .andDo(print())
                 .andDo(document("push"));

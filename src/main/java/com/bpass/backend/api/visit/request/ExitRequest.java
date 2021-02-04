@@ -12,8 +12,5 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class ExitRequest {
-  private Long storeId;
-  private Long visitorId;
-  private LocalDateTime entryTime;
   private LocalDateTime exitTime;
 }

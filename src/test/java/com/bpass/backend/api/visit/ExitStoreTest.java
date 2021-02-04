@@ -19,7 +19,6 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@Disabled
 @DisplayName("퇴장 기록 테스트")
 class ExitStoreTest extends BaseControllerTest {
 
@@ -33,13 +32,10 @@ class ExitStoreTest extends BaseControllerTest {
         Visits visit = this.visitFactory.generateVisit(userId,store.getId());
 
         ExitRequest exitRequest = ExitRequest.builder()
-                .storeId(visit.getStore().getId())
-                .visitorId(visit.getVisitor().getId())
-                .entryTime(visit.getEntryTime())
                 .exitTime(LocalDateTime.now())
                 .build();
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.put("/visits")
+        this.mockMvc.perform(RestDocumentationRequestBuilders.put("/visits/{visitId}",visit.getId())
                 .header("Authorization", "Bearer " + store.getAccessToken())
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(this.objectMapper.writeValueAsString(exitRequest)))

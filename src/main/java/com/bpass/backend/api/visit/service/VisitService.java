@@ -16,7 +16,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -29,19 +28,19 @@ public class VisitService {
     private final FcmService fcmService;
 
     @Transactional
-    public void entryStore(Long visitorId, Long storeId, LocalDateTime time) {
-        visitsRepository.save(
+    public long entryStore(Long visitorId, Long storeId, LocalDateTime time) {
+        return visitsRepository.save(
                 new Visits(
                         usersRepository.findById(visitorId).orElseThrow(InvalidUserException::new),
                         storeRepository.findById(storeId).orElseThrow(InvalidStoreException::new),
                         time
                 )
-        );
+        ).getId();
     }
 
     @Transactional
-    public void exitStore(Long visitorId, Long storeId, LocalDateTime entryTime, LocalDateTime exitTime) {
-        Visits visits = visitsRepository.findByVisitor_IdAndStore_IdAndEntryTime(visitorId, storeId, entryTime)
+    public void exitStore(Long visitId, LocalDateTime exitTime) {
+        Visits visits = visitsRepository.findById(visitId)
                 .orElseThrow(VisitsNotExistsException::new);
         visits.setExitTime(exitTime);
     }
@@ -60,5 +59,4 @@ public class VisitService {
                 .stream().map(visits -> visits.getVisitor().getId()).collect(Collectors.toList());
         return fcmService.sendPushMessages(new PushContentsDto("B Pass", visit.getStore().getStoreName()), visitors).getSuccessCount();
     }
-
 }

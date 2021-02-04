@@ -2,7 +2,6 @@ package com.bpass.backend.api.visit.controller;
 
 import com.bpass.backend.api.visit.request.EntryRequest;
 import com.bpass.backend.api.visit.request.ExitRequest;
-import com.bpass.backend.api.visit.request.SendPushRequest;
 import com.bpass.backend.api.visit.response.SendPushResponse;
 import com.bpass.backend.api.visit.response.VisitLogsResponse;
 import com.bpass.backend.api.visit.service.VisitService;
@@ -20,14 +19,14 @@ public class VisitController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void entry(@RequestBody EntryRequest entryRequest) {
-        visitService.entryStore(entryRequest.getVisitorId(), entryRequest.getStoreId(), entryRequest.getEntryTime());
+    public long entry(@RequestBody EntryRequest entryRequest) {
+        return visitService.entryStore(entryRequest.getVisitorId(), entryRequest.getStoreId(), entryRequest.getEntryTime());
     }
 
-    @PutMapping
+    @PutMapping("/{visitId}")
     @ResponseStatus(HttpStatus.OK)
-    public void entry(@RequestBody ExitRequest exitRequest) {
-        visitService.exitStore(exitRequest.getVisitorId(), exitRequest.getStoreId(), exitRequest.getEntryTime(), exitRequest.getExitTime());
+    public void exitStore(@RequestBody ExitRequest exitRequest, @PathVariable Long visitId) {
+        visitService.exitStore(visitId, exitRequest.getExitTime());
     }
 
     @GetMapping("/{storeId}")
