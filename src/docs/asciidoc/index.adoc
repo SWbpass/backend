@@ -1,4 +1,4 @@
-= SpringBoot Templet REST API Guide
+= BPass REST API Guide
 Always0ne;
 :doctype: book
 :icons: font
