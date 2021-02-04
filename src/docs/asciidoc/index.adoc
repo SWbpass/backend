@@ -72,33 +72,10 @@ operation::0001[snippets='response-body']
 [[E0002]]
 ==== Error0002
 operation::0002[snippets='response-body']
-[[E0003]]
-==== Error0003
-operation::0003[snippets='response-body']
-[[E0004]]
-==== Error0004
-operation::0004[snippets='response-body']
 [[E0005]]
 ==== Error0005
 operation::0005[snippets='response-body']
 [[E0006]]
-==== Error0006
-operation::0006[snippets='response-body']
-
-[[CommunityError]]
-=== Community Error
-[[E1001]]
-==== Error1001
-operation::1001[snippets='response-body']
-
-[[PostError]]
-==== Post Error
-[[E1101]]
-===== Error1101
-operation::1101[snippets='response-body']
-
-[[CommentError]]
-==== Comment Error
 
 [[SystemError]]
 === System Error
