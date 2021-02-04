@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 public class FcmService {
 
     private final FcmTokensRepository fcmTokensRepository;
+
   public BatchResponse sendPushMessages(PushContentsDto pushContentsDto, List<Long> users)
       throws FirebaseMessagingException {
       List<String> tokens = fcmTokensRepository.findAllByIdIn(users).stream().map(FcmTokens::getToken).collect(Collectors.toList());
@@ -28,4 +29,8 @@ public class FcmService {
 
     return FirebaseMessaging.getInstance().sendMulticast(message);
   }
+
+    public void registerToken(Long userId, String token) {
+        fcmTokensRepository.save(new FcmTokens(userId,token));
+    }
 }

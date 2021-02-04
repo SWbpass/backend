@@ -535,6 +535,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#admin-visit-logs_http_response">Example response</a></li>
 </ul>
 </li>
+<li><a href="#fcm">fcm 세팅</a></li>
+<li><a href="#registerToken">토큰 등록</a>
+<ul class="sectlevel2">
+<li><a href="#registerToken_http_request">HTTP request</a></li>
+<li><a href="#registerToken_http_response">Example response</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -641,7 +648,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2021-02-05T04:31:26.5456064",
+  "timestamp" : "2021-02-05T05:06:27.4225801",
   "status" : 202,
   "error" : "0001",
   "message" : "ID: TestUser1 이미 사용중인 아이디입니다."
@@ -657,7 +664,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2021-02-05T04:31:24.1321629",
+  "timestamp" : "2021-02-05T05:06:24.9412471",
   "status" : 403,
   "error" : "0002",
   "message" : "ID: TestUser1 회원가입이 되어있지 않거나 잠긴 계정입니다."
@@ -673,7 +680,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code>{
-  "timestamp" : "2021-02-05T04:31:21.6680913",
+  "timestamp" : "2021-02-05T05:06:22.1691614",
   "status" : 403,
   "error" : "0005",
   "message" : "잘못된 인증입니다."
@@ -758,7 +765,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDY3MDg0fQ.5CQR5Ee9YNHNfoDJQBl2mfX5cwO7gBr-hB5IbYtucNk"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDY5MTg0fQ.7uq53UqXnGDOlghZXyvEJPWnaXc5aySBR_OaV91p-Nk"
 }</code></pre>
 </div>
 </div>
@@ -815,7 +822,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDY3MDg2fQ.dbacKKy8iviBumOZdkIqffSZ4-yu2-npqXhmraYBYNg"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDY5MTg3fQ.qvtsBejinlDyBbsTpbBYW5UjhRrZl7od_V-ix923bA4"
 }</code></pre>
 </div>
 </div>
@@ -872,7 +879,7 @@ X-Frame-Options: DENY
 Content-Length: 173
 
 {
-  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDY3MDg2fQ.dbacKKy8iviBumOZdkIqffSZ4-yu2-npqXhmraYBYNg"
+  "accessToken" : "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDY5MTg3fQ.qvtsBejinlDyBbsTpbBYW5UjhRrZl7od_V-ix923bA4"
 }</code></pre>
 </div>
 </div>
@@ -927,14 +934,14 @@ X-Frame-Options: DENY</code></pre>
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /visits HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ2NzA2NH0.DMs4oFwGJSJio7AOnQj06Hy9h0y9nhCM3Q8q4Ymd_gc
-Content-Length: 89
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ2OTE2OH0.ZbBopwrA9aXegt2QOKF-ss86RJ3jYPuD6aFsXN1srRY
+Content-Length: 88
 Host: templet.restapi.com
 
 {
   "storeId" : 1,
   "visitorId" : 1,
-  "entryTime" : "2021-02-05T04:31:04.7083612"
+  "entryTime" : "2021-02-05T05:06:08.438995"
 }</code></pre>
 </div>
 </div>
@@ -971,14 +978,14 @@ Content-Length: 1
 <h4 id="exit_http_request"><a class="link" href="#exit_http_request">HTTP request</a></h4>
 <div class="listingblock">
 <div class="content">
-<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /visits/1 HTTP/1.1
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">PUT /visits/2 HTTP/1.1
 Content-Type: application/json;charset=UTF-8
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ2NzA2OH0.LumsW08ULWsPf75vSM_T25qVkwV2Y8_p74R-RtI-M04
-Content-Length: 50
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ2OTE2OH0.ZbBopwrA9aXegt2QOKF-ss86RJ3jYPuD6aFsXN1srRY
+Content-Length: 49
 Host: templet.restapi.com
 
 {
-  "exitTime" : "2021-02-05T04:31:08.3006054"
+  "exitTime" : "2021-02-05T05:06:08.725007"
 }</code></pre>
 </div>
 </div>
@@ -1015,7 +1022,7 @@ X-Frame-Options: DENY</code></pre>
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /visits/1 HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ2NzA3NH0.v7yTIF93lbfKacPgvnsam7QCOn4Jb-mIyFxQbAmuBoQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1NUT1JFIl0sImlhdCI6MTYxMjQ2OTE3NH0.PRMICn7k9mXpe1VdGtHrzmy760J6PzA3309Zvre5mSU
 Host: templet.restapi.com</code></pre>
 </div>
 </div>
@@ -1056,8 +1063,8 @@ Content-Length: 866
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-05T02:31:14.3820486",
-    "exitTime" : "2021-02-05T04:31:14.3880651"
+    "entryTime" : "2021-02-05T03:06:14.7433746",
+    "exitTime" : "2021-02-05T05:06:14.7503739"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1072,8 +1079,8 @@ Content-Length: 866
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-05T02:31:14.3960477",
-    "exitTime" : "2021-02-05T04:31:14.4020474"
+    "entryTime" : "2021-02-05T03:06:14.7563735",
+    "exitTime" : "2021-02-05T05:06:14.7623823"
   } ]
 }</code></pre>
 </div>
@@ -1095,7 +1102,7 @@ Content-Length: 866
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">GET /visits HTTP/1.1
-Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjUiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxMjQ2NzA3MX0.oFOaWR_PPh4PsOnLTIpUOGi6ZKhlzilzYIZ77nrZtCc
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjUiLCJyb2xlcyI6WyJST0xFX0FETUlOIl0sImlhdCI6MTYxMjQ2OTE3MX0.5eCtuUOGGUGu-btzwiy5x18UpsodKKFX8diCoREwBXU
 Host: templet.restapi.com</code></pre>
 </div>
 </div>
@@ -1136,8 +1143,8 @@ Content-Length: 1708
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-05T02:31:11.5018302",
-    "exitTime" : "2021-02-05T04:31:11.5078299"
+    "entryTime" : "2021-02-05T03:06:11.9210751",
+    "exitTime" : "2021-02-05T05:06:11.9260759"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1152,8 +1159,8 @@ Content-Length: 1708
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-05T02:31:11.5088299",
-    "exitTime" : "2021-02-05T04:31:11.5138322"
+    "entryTime" : "2021-02-05T03:06:11.9270859",
+    "exitTime" : "2021-02-05T05:06:11.9330768"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1168,8 +1175,8 @@ Content-Length: 1708
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-05T02:31:11.5148315",
-    "exitTime" : "2021-02-05T04:31:11.5198321"
+    "entryTime" : "2021-02-05T03:06:11.9330768",
+    "exitTime" : "2021-02-05T05:06:11.9381033"
   }, {
     "id" : 0,
     "visitor" : {
@@ -1184,10 +1191,59 @@ Content-Length: 1708
       "storePhoneNumber" : "010-1234-5678",
       "address" : "주소"
     },
-    "entryTime" : "2021-02-05T02:31:11.5208313",
-    "exitTime" : "2021-02-05T04:31:11.5258299"
+    "entryTime" : "2021-02-05T03:06:11.9390741",
+    "exitTime" : "2021-02-05T05:06:11.9440981"
   } ]
 }</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="fcm"><a class="link" href="#fcm">fcm 세팅</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="registerToken"><a class="link" href="#registerToken">토큰 등록</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="registerToken_http_request"><a class="link" href="#registerToken_http_request">HTTP request</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">POST /push HTTP/1.1
+Content-Type: application/json;charset=UTF-8
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VySWQiOiJUZXN0VXNlcjEiLCJyb2xlcyI6WyJST0xFX1VTRVIiXSwiaWF0IjoxNjEyNDY5MTY0fQ.MC79ERneuba87vWvE1c5q_I-S0zFv_Bs8AOciiRnhzk
+Content-Length: 48
+Host: templet.restapi.com
+
+{
+  "userId" : 1,
+  "token" : "Token Value"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="registerToken_http_response"><a class="link" href="#registerToken_http_response">Example response</a></h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlightjs highlight nowrap"><code class="language-http hljs" data-lang="http">HTTP/1.1 200 OK
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+Vary: Origin
+Vary: Access-Control-Request-Method
+Vary: Access-Control-Request-Headers
+X-Content-Type-Options: nosniff
+X-XSS-Protection: 1; mode=block
+Cache-Control: no-cache, no-store, max-age=0, must-revalidate
+Pragma: no-cache
+Expires: 0
+Strict-Transport-Security: max-age=31536000 ; includeSubDomains
+X-Frame-Options: DENY</code></pre>
 </div>
 </div>
 </div>
@@ -1196,7 +1252,7 @@ Content-Length: 1708
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2021-02-05 00:19:47 +0900
+Last updated 2021-02-05 05:07:55 +0900
 </div>
 </div>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/styles/github.min.css">

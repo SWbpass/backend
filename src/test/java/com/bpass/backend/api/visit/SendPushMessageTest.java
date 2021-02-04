@@ -2,17 +2,11 @@ package com.bpass.backend.api.visit;
 
 import com.bpass.backend.api.common.BaseControllerTest;
 import com.bpass.backend.api.visit.model.Visits;
-import com.bpass.backend.api.visit.request.ExitRequest;
-import com.bpass.backend.security.model.UserRole;
 import com.bpass.backend.security.model.dto.SignUpDto;
-import com.bpass.backend.security.request.SignUpRequest;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.http.MediaType;
 import org.springframework.restdocs.mockmvc.RestDocumentationRequestBuilders;
-
-import java.time.LocalDateTime;
 
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
