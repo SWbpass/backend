@@ -43,13 +43,18 @@ public class AuthService {
 
     @Transactional
     public SignInResponse signInStore(String id, String password) {
-        Account account =
-                this.storeRepository.findByUserIdAndState(id, UserStatus.NORMAL, Account.class)
+        Store store =
+                this.storeRepository.findByUserIdAndState(id, UserStatus.NORMAL, Store.class)
                         .orElseThrow(() -> new CantSignInException(id));
-        if (!passwordEncoder.matches(password, account.getPassword())) {
+        if (!passwordEncoder.matches(password, store.getPassword())) {
             throw new CantSignInException(id);
         }
-        return generateSignInResponse(account);
+        return SignInResponse.builder()
+                .accessToken(jwtTokenProvider.createAccessToken(store.getUserId(), store.getRoles()))
+                .id(store.getId())
+                .name(store.getName())
+                .storeName(store.getStoreName())
+                .build();
     }
 
     @Transactional
@@ -70,7 +75,7 @@ public class AuthService {
 
     @Transactional
     public SignInResponse signUpStore(SignUpStoreDto signUpStoreDto) {
-        Account account = this.storeRepository.save(
+        Store store = this.storeRepository.save(
                 new Store(
                         signUpStoreDto.getId(),
                         passwordEncoder.encode(signUpStoreDto.getPassword()),
@@ -85,7 +90,12 @@ public class AuthService {
                         signUpStoreDto.getLongitude()
                 ));
 
-        return generateSignInResponse(account);
+        return SignInResponse.builder()
+                .accessToken(jwtTokenProvider.createAccessToken(store.getUserId(), store.getRoles()))
+                .id(store.getId())
+                .name(store.getName())
+                .storeName(store.getStoreName())
+                .build();
     }
 
     @Transactional
@@ -107,6 +117,8 @@ public class AuthService {
     private SignInResponse generateSignInResponse(Account account) {
         return SignInResponse.builder()
                 .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getRoles()))
+                .id(account.getId())
+                .name(account.getName())
                 .build();
     }
 
