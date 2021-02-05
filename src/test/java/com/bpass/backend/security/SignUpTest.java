@@ -44,7 +44,7 @@ class SignUpTest extends BaseControllerTest {
                 .password("Password")
                 .phoneNumber("전화번호~")
                 .address("집주소")
-                .role(UserRole.ROLE_USER)
+                .role(UserRole.ROLE_STORE)
                 .storeName("매장이름")
                 .storePhoneNumber("매장번호")
                 .latitude("위도값")
