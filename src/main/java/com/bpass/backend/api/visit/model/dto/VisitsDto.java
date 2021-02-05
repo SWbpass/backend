@@ -17,6 +17,7 @@ public class VisitsDto {
   private LocalDateTime exitTime;
 
   public VisitsDto(Visits visits){
+    this.id = visits.getId();
     this.visitor = new UserInfoDto(visits.getVisitor());
     this.store = new StoreInfoDto(visits.getStore());
     this.entryTime = visits.getEntryTime();
