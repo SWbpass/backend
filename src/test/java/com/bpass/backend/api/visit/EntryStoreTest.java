@@ -29,8 +29,8 @@ class EntryStoreTest extends BaseControllerTest {
         Long userId = this.accountFactory.generateUser(2).getId();
 
         EntryRequest entryRequest = EntryRequest.builder()
-                .storeId(store.getId())
-                .visitorId(userId)
+                .storeId("TestStore1")
+                .visitorId("TestUser2")
                 .entryTime(LocalDateTime.now())
                 .build();
 
