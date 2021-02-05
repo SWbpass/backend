@@ -1,4 +1,4 @@
-# Contributing to SpringBootRestApiTemplate
+# Contributing to B Pass backend
 Thank you for contributing to SpringBootRestApiTemplate
 We have some rules to contribute this project
 
@@ -7,7 +7,6 @@ We have some rules to contribute this project
 3. [Branch](#branch)
 4. [Pull Requests](#pull-requests)
 5. [Code Check](#code-check)
-6. [Update Class Document](#update-class-document)
 7. [Developer's Certificate of Origin 1.1](#Developer-Certificate-of-Origin)
 
 ## How To Contribute
@@ -35,9 +34,6 @@ We have some rules to contribute this project
     - Commit only the code for the specified task
 - check code conventions before commit
 
-### update Class Document
-please update and commit [Class Document](https://always0ne.github.io/SpringBootRestApiTemplate/) once alone before pull request
-  
 ## Developer Certificate of Origin
 Version 1.1
 

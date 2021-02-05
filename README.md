@@ -1,55 +1,27 @@
-# SpringBootRestApiTemplate
+# B Pass Backend 
 ## Index
   - [Overview](#overview) 
   - [Getting Started](#getting-started)
   - [Contributing](#contributing)
   - [Authors](#authors)
-  - [License](#license)
-  - [Deployment](#deployment)
   - [Used or Referenced Projects](Used-or-Referenced-Projects)
+  - [License](#license)
 
-## About SpringBootRestApiTemplate
-This Project is for Quick Start Spring boot Restful Api Server  
-This project provides a simple community functions.
+## About B Pass Backend
+비콘을 이용한 무선 전자출입시스템 B Pass의 백엔드 프로젝트 입니다.
 
 ## Overview
 ### Provide Features
-- Community Api - See [Rest Api Docs](https://always0ne.github.io/SpringBootRestApiTemplate/ApiDocs.html)
+- Community Api - See [Rest Api Docs](https://swbpass.github.io/backend/ApiDocs.html)
 - Error Report System(to SLACK)
 - JWT Authentication(use AccessToken and RefreshToken)
-- Pull Request Auto BuildTest
-- Build Docker image when merged develop(`test`) and master(`release`) branch
-- [Class Document](https://always0ne.github.io/SpringBootRestApiTemplate/)  
+- FCM Push
 
-### ErrorCode Rules
-```
-account 	0000
-community	1000
-post		1100
-comment		1200
-system		2000
-   ```
 ## Getting Started
 ### Dependencies
 - JDK11
 - All dependencies are managed by gradle
-## Deployment
-this project build docker image automatically so deploy on docker
-### login github docker registry
-    sudo docker login https://docker.pkg.github.com --username [userName]
-### Deploy on server
-- deploy test server(develop branch)
-```shell script
-sudo docker run -d  -p 8080:8080 --name=testserver \
--v /etc/localtime:/etc/localtime:ro  -e TZ=Asia/Seoul  --restart=unless-stopped \
-docker.pkg.github.com/always0ne/springbootrestapitemplate/test:version
-```
-- deploy running server(master branch)
-```shell script
-sudo docker run -d  -p 8080:8080 --name=server \
--v /etc/localtime:/etc/localtime:ro  -e TZ=Asia/Seoul  --restart=unless-stopped \
-docker.pkg.github.com/always0ne/springbootrestapitemplate/release:version
-```
+
 ## Contributing
 
 If you see this project and have any points to improve or do not understand, please post any issues or Pull Requests.
@@ -59,8 +31,9 @@ of conduct, and the process for submitting pull requests to us.
 ## Authors
   - [Always0ne](https://github.com/Always0ne) - **SangIl Hwang** - <si8363@soongsil.ac.kr>
 
-See also the list of [contributors](https://github.com/always0ne/SpringBootRestApiTemplate/contributors)
+See also the list of [contributors](https://github.com/SWbpass/backend/contributors)
 who participated in this project.
+
 ## Used or Referenced Projects
  - [spring-logback-slack-notification-example](https://github.com/brant-hwang/spring-logback-slack-notification-example) - **LICENSE ?** 
     - referenced to create an error notification function.
