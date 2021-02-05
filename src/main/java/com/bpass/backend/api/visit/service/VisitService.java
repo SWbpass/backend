@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -73,5 +74,4 @@ public class VisitService {
                 .stream().map(visits -> visits.getVisitor().getUserId()).collect(Collectors.toList());
         return fcmService.sendPushMessages(new PushContentsDto(visit), visitors).getSuccessCount();
     }
-
 }

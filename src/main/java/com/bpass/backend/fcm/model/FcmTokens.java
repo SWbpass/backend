@@ -3,6 +3,7 @@ package com.bpass.backend.fcm.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,7 @@ public class FcmTokens {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String userId;
+    @Setter
     private String token;
 
     public FcmTokens(String userId, String token){
