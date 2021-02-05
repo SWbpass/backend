@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 public class EntryRequest {
-  private Long storeId;
-  private Long visitorId;
+  private String storeId;
+  private String visitorId;
   private LocalDateTime entryTime;
 }

@@ -13,4 +13,6 @@ public interface UsersRepository extends JpaRepository<Users, Long> {
   <T> Optional<T> findByUserIdAndState(String userId, UserStatus state, Class<T> dataType);
 
   Optional<UserIdDto> findByUserIdAndStateIsNot(String userId, UserStatus state);
+
+  Optional<Users> findByUserId(String userId);
 }

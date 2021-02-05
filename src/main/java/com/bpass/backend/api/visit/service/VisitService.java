@@ -28,11 +28,11 @@ public class VisitService {
     private final FcmService fcmService;
 
     @Transactional
-    public long entryStore(Long visitorId, Long storeId, LocalDateTime time) {
+    public long entryStore(String visitorId, String storeId, LocalDateTime time) {
         return visitsRepository.save(
                 new Visits(
-                        usersRepository.findById(visitorId).orElseThrow(InvalidUserException::new),
-                        storeRepository.findById(storeId).orElseThrow(InvalidStoreException::new),
+                        usersRepository.findByUserId(visitorId).orElseThrow(InvalidUserException::new),
+                        storeRepository.findByUserId(storeId).orElseThrow(InvalidStoreException::new),
                         time
                 )
         ).getId();
