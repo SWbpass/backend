@@ -31,6 +31,7 @@ public class FcmService {
   }
 
     public void registerToken(String userId, String token) {
-        fcmTokensRepository.save(new FcmTokens(userId,token));
+        FcmTokens fcmTokens = fcmTokensRepository.findByUserId(userId).orElse(new FcmTokens(userId,token));
+        fcmTokensRepository.save(fcmTokens);
     }
 }
