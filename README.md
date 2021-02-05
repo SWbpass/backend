@@ -1,4 +1,4 @@
-# B Pass Backend 
+# ![](https://github.com/SWbpass/backend/blob/develop/ReadmeLogo.PNG?raw=true)
 ## Index
   - [Overview](#overview) 
   - [Getting Started](#getting-started)
