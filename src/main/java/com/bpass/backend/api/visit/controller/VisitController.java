@@ -2,6 +2,7 @@ package com.bpass.backend.api.visit.controller;
 
 import com.bpass.backend.api.visit.request.EntryRequest;
 import com.bpass.backend.api.visit.request.ExitRequest;
+import com.bpass.backend.api.visit.response.GetSuspiciousResponse;
 import com.bpass.backend.api.visit.response.SendPushResponse;
 import com.bpass.backend.api.visit.response.VisitLogsResponse;
 import com.bpass.backend.api.visit.service.VisitService;
@@ -52,5 +53,11 @@ public class VisitController {
     @ResponseStatus(HttpStatus.OK)
     public SendPushResponse sendPushMessage(@PathVariable Long visitId) throws FirebaseMessagingException {
         return new SendPushResponse(visitService.sendPushMessages(visitId));
+    }
+
+    @GetMapping("/suspicious/{visitId}")
+    @ResponseStatus(HttpStatus.OK)
+    public GetSuspiciousResponse getSuspicious(@PathVariable Long visitId){
+        return new GetSuspiciousResponse(visitService.getSuspicious(visitId));
     }
 }
