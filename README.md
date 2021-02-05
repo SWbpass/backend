@@ -1,18 +1,11 @@
-# ![](https://github.com/SWbpass/backend/blob/develop/ReadmeLogo.PNG?raw=true)
-## Index
-  - [Overview](#overview) 
-  - [Getting Started](#getting-started)
-  - [Contributing](#contributing)
-  - [Authors](#authors)
-  - [Used or Referenced Projects](Used-or-Referenced-Projects)
-  - [License](#license)
+![](https://github.com/SWbpass/backend/blob/develop/ReadmeLogo.PNG?raw=true)
 
 ## About B Pass Backend
 비콘을 이용한 무선 전자출입시스템 B Pass의 백엔드 프로젝트 입니다.
 
 ## Overview
 ### Provide Features
-- Community Api - See [Rest Api Docs](https://swbpass.github.io/backend/ApiDocs.html)
+- 지원하는 Api - See [Rest Api Docs](https://swbpass.github.io/backend/ApiDocs.html)
 - Error Report System(to SLACK)
 - JWT Authentication(use AccessToken and RefreshToken)
 - FCM Push
