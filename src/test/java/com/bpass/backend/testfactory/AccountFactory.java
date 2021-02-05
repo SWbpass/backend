@@ -59,7 +59,7 @@ public class AccountFactory {
   public SignUpDto generateStore(int index) {
     SignInResponse response = authService.signUpStore(
             new SignUpStoreDto(
-                    "TestUser" + index,
+                    "TestStore" + index,
                     "password",
                     "테스트 유저 " + index,
                     "010-1234-5678",
@@ -70,7 +70,7 @@ public class AccountFactory {
                     "경도값"
             )
     );
-    return new SignUpDto(response.getAccessToken(),storeRepository.findByUserIdAndState("TestUser" + index, UserStatus.NORMAL, Account.class)
+    return new SignUpDto(response.getAccessToken(),storeRepository.findByUserIdAndState("TestStore" + index, UserStatus.NORMAL, Account.class)
             .get().getId());
   }
 }

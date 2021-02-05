@@ -49,8 +49,24 @@ public class VisitService {
         return visitsRepository.findAllByStore_Id(storeId).stream().map(VisitsDto::new).collect(Collectors.toList());
     }
 
-    public List<VisitsDto> getAdminVisitsLogs() {
-        return visitsRepository.findAll().stream().map(VisitsDto::new).collect(Collectors.toList());
+    public List<VisitsDto> getAdminVisitsLogs(String storeName, String visitorName, LocalDateTime time) {
+        List<VisitsDto> visits =  visitsRepository.findAll().stream().map(VisitsDto::new).collect(Collectors.toList());
+        List<VisitsDto> result =visits;
+
+        if(storeName!=null)
+            result = visits.stream().filter(visitsDto -> visitsDto.getStore().getStoreName().equals(storeName)).collect(Collectors.toList());
+        if(visitorName != null)
+            result = result.stream().filter(visitsDto -> visitsDto.getVisitor().getName().equals(visitorName)).collect(Collectors.toList());
+        if(time != null)
+            result = result.stream().filter(visitsDto -> checkTime(visitsDto,time)).collect(Collectors.toList());
+        return result;
+
+    }
+
+    private Boolean checkTime(VisitsDto visitsDto, LocalDateTime time){
+        if(time.isBefore(visitsDto.getExitTime()))
+            return true;
+        return time.isAfter(visitsDto.getEntryTime());
     }
 
     public int sendPushMessages(Long visitId) throws FirebaseMessagingException {
@@ -59,4 +75,5 @@ public class VisitService {
                 .stream().map(visits -> visits.getVisitor().getUserId()).collect(Collectors.toList());
         return fcmService.sendPushMessages(new PushContentsDto(visit), visitors).getSuccessCount();
     }
+
 }

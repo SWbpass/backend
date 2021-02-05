@@ -35,6 +35,9 @@ class GetAdminVisitLogsTest extends BaseControllerTest {
         this.visitFactory.generateVisit(userId2,storeId2);
 
         this.mockMvc.perform(RestDocumentationRequestBuilders.get("/visits")
+                .param("storeName","매장명1")
+                .param("visitorName","테스트 유저 3")
+                .param("time",LocalDateTime.now().minusHours(1).toString())
                 .header("Authorization", "Bearer " + adminAccessToken)
         )
 
