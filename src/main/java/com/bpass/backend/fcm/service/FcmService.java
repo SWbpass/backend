@@ -17,20 +17,20 @@ public class FcmService {
 
     private final FcmTokensRepository fcmTokensRepository;
 
-  public BatchResponse sendPushMessages(PushContentsDto pushContentsDto, List<Long> users)
+  public BatchResponse sendPushMessages(PushContentsDto pushContentsDto, List<String> users)
       throws FirebaseMessagingException {
-      List<String> tokens = fcmTokensRepository.findAllByIdIn(users).stream().map(FcmTokens::getToken).collect(Collectors.toList());
+      List<String> tokens = fcmTokensRepository.findAllByUserIdIn(users).stream().map(FcmTokens::getToken).collect(Collectors.toList());
    MulticastMessage message = MulticastMessage.builder()
         .setNotification(new Notification(pushContentsDto.getTitle(), pushContentsDto.getBody()))
-        .putData("title", pushContentsDto.getTitle())
-        .putData("body", pushContentsDto.getBody())
+        .putData("latitude", pushContentsDto.getLatitude())
+        .putData("longitude", pushContentsDto.getLongitude())
         .addAllTokens(tokens)
         .build();
 
     return FirebaseMessaging.getInstance().sendMulticast(message);
   }
 
-    public void registerToken(Long userId, String token) {
+    public void registerToken(String userId, String token) {
         fcmTokensRepository.save(new FcmTokens(userId,token));
     }
 }

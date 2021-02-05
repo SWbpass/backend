@@ -55,8 +55,8 @@ public class VisitService {
 
     public int sendPushMessages(Long visitId) throws FirebaseMessagingException {
         Visits visit = visitsRepository.findById(visitId).orElseThrow(VisitsNotExistsException::new);
-        List<Long> visitors = visitsRepository.findAllByStore_IdAndEntryTimeBetweenAndExitTimeBetween(visit.getStore().getId(), visit.getEntryTime(), visit.getExitTime(), visit.getEntryTime(), visit.getExitTime())
-                .stream().map(visits -> visits.getVisitor().getId()).collect(Collectors.toList());
-        return fcmService.sendPushMessages(new PushContentsDto("B Pass", visit.getStore().getStoreName()), visitors).getSuccessCount();
+        List<String> visitors = visitsRepository.findAllByStore_IdAndEntryTimeBetweenAndExitTimeBetween(visit.getStore().getId(), visit.getEntryTime(), visit.getExitTime(), visit.getEntryTime(), visit.getExitTime())
+                .stream().map(visits -> visits.getVisitor().getUserId()).collect(Collectors.toList());
+        return fcmService.sendPushMessages(new PushContentsDto(visit), visitors).getSuccessCount();
     }
 }

@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SignInResponse {
   private String accessToken;
-  private Long id;
+  private String id;
   private String name;
   private String storeName;
 }

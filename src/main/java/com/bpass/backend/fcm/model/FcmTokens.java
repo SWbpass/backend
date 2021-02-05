@@ -14,5 +14,11 @@ import javax.persistence.Id;
 public class FcmTokens {
     @Id
     private long id;
+    private String userId;
     private String token;
+
+    public FcmTokens(String userId, String token){
+        this.userId = userId;
+        this.token = token;
+    }
 }

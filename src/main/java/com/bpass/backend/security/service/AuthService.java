@@ -51,7 +51,7 @@ public class AuthService {
         }
         return SignInResponse.builder()
                 .accessToken(jwtTokenProvider.createAccessToken(store.getUserId(), store.getRoles()))
-                .id(store.getId())
+                .id(store.getUserId())
                 .name(store.getName())
                 .storeName(store.getStoreName())
                 .build();
@@ -92,7 +92,7 @@ public class AuthService {
 
         return SignInResponse.builder()
                 .accessToken(jwtTokenProvider.createAccessToken(store.getUserId(), store.getRoles()))
-                .id(store.getId())
+                .id(store.getUserId())
                 .name(store.getName())
                 .storeName(store.getStoreName())
                 .build();
@@ -117,7 +117,7 @@ public class AuthService {
     private SignInResponse generateSignInResponse(Account account) {
         return SignInResponse.builder()
                 .accessToken(jwtTokenProvider.createAccessToken(account.getUserId(), account.getRoles()))
-                .id(account.getId())
+                .id(account.getUserId())
                 .name(account.getName())
                 .build();
     }

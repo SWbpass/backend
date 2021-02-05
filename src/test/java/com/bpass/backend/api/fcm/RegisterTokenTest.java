@@ -23,7 +23,7 @@ class RegisterTokenTest extends BaseControllerTest {
         SignUpDto user = this.accountFactory.generateUser(1);
 
         RegisterTokenRequest registerTokenRequest = RegisterTokenRequest.builder()
-                .userId(user.getId())
+                .userId("TestUser" + 1)
                 .token("Token Value")
                 .build();
 

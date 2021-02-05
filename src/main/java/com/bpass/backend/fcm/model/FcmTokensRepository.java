@@ -10,5 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface FcmTokensRepository extends JpaRepository<FcmTokens, Long> {
-    List<FcmTokens> findAllByIdIn(List<Long> userIds);
+    List<FcmTokens> findAllByUserIdIn(List<String> userIds);
 }
