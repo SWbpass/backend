@@ -64,9 +64,7 @@ public class VisitService {
     }
 
     private Boolean checkTime(VisitsDto visitsDto, LocalDateTime time){
-        if(time.isBefore(visitsDto.getExitTime()))
-            return true;
-        return time.isAfter(visitsDto.getEntryTime());
+        return time.isBefore(visitsDto.getExitTime()) && time.isAfter(visitsDto.getEntryTime());
     }
 
     public int sendPushMessages(Long visitId) throws FirebaseMessagingException {
