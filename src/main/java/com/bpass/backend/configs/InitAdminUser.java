@@ -35,7 +35,7 @@ public class InitAdminUser implements ApplicationListener<ApplicationStartedEven
         );
 
         authService.signUpUser(
-                new SignUpUserDto(,"password","테스트유저 1", "010-9876-4321", "서울시 동작구")
+                new SignUpUserDto("test1@user.com","password","테스트유저 1", "010-9876-4321", "서울시 동작구")
         );
 
         authService.signUpUser(
