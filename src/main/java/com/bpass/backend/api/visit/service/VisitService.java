@@ -45,8 +45,8 @@ public class VisitService {
         visits.setExitTime(exitTime);
     }
 
-    public List<VisitsDto> getVisitsLogs(Long storeId) {
-        return visitsRepository.findAllByStore_Id(storeId).stream().map(VisitsDto::new).collect(Collectors.toList());
+    public List<VisitsDto> getVisitsLogs(String storeId) {
+        return visitsRepository.findAllByStore_UserId(storeId).stream().map(VisitsDto::new).collect(Collectors.toList());
     }
 
     public List<VisitsDto> getAdminVisitsLogs(String storeName, String visitorName, LocalDateTime time) {
@@ -70,7 +70,7 @@ public class VisitService {
 
     public int sendPushMessages(Long visitId) throws FirebaseMessagingException {
         Visits visit = visitsRepository.findById(visitId).orElseThrow(VisitsNotExistsException::new);
-        List<String> visitors = visitsRepository.findAllByStore_Id(visit.getStore().getId())
+        List<String> visitors = visitsRepository.findAllByStore_UserId(visit.getStore().getUserId())
                 .stream()
                 .filter(visits -> visits != visit)
                 .filter(visits -> checkTime(new VisitsDto(visits), visit.getEntryTime()) || checkTime(new VisitsDto(visits), visit.getExitTime()))
@@ -80,7 +80,7 @@ public class VisitService {
 
     public List<VisitsDto> getSuspicious(Long visitId) {
         Visits visit = visitsRepository.findById(visitId).orElseThrow(VisitsNotExistsException::new);
-        return visitsRepository.findAllByStore_Id(visit.getStore().getId())
+        return visitsRepository.findAllByStore_UserId(visit.getStore().getUserId())
                 .stream()
                 .filter(visits -> visits.getVisitor().getId() != visit.getVisitor().getId())
                 .filter(visits -> checkTime(new VisitsDto(visits), visit.getEntryTime()) || checkTime(new VisitsDto(visits), visit.getExitTime()))

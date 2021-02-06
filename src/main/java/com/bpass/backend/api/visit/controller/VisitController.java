@@ -35,7 +35,7 @@ public class VisitController {
 
     @GetMapping("/{storeId}")
     @ResponseStatus(HttpStatus.OK)
-    public VisitLogsResponse getVisitLogs(@PathVariable Long storeId) {
+    public VisitLogsResponse getVisitLogs(@PathVariable String storeId) {
         return new VisitLogsResponse(visitService.getVisitsLogs(storeId));
     }
 

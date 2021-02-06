@@ -30,7 +30,7 @@ class GetVisitLogsTest extends BaseControllerTest {
         this.visitFactory.generateVisit(userId2,store.getId());
         this.visitFactory.generateVisit(userId2,storeId2);
 
-        this.mockMvc.perform(RestDocumentationRequestBuilders.get("/visits/{storeId}", store.getId())
+        this.mockMvc.perform(RestDocumentationRequestBuilders.get("/visits/{storeId}", "Teststore1")
                 .header("Authorization", "Bearer " + store.getAccessToken())
         )
                 .andExpect(status().isOk())

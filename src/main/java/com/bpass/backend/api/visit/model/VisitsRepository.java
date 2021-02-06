@@ -11,7 +11,7 @@ import java.util.Optional;
 public interface VisitsRepository extends JpaRepository<Visits, Long> {
     Optional<Visits> findByVisitor_IdAndStore_IdAndEntryTime(Long visitorId, Long storeId, LocalDateTime entryTime);
 
-    List<Visits> findAllByStore_Id(Long storeId);
+    List<Visits> findAllByStore_UserId(String storeId);
 
     List<Visits> findAllByStore_IdAndEntryTimeBetweenAndExitTimeBetween(Long storeId,LocalDateTime startDate, LocalDateTime endDate,LocalDateTime startDate2, LocalDateTime endDate2);
 }
