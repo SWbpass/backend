@@ -43,14 +43,14 @@ public class InitAdminUser implements ApplicationListener<ApplicationStartedEven
         );
 
         Long visitN = visitService.entryStore("test1@user.com","test2@store.com",LocalDateTime.now());
-        visitService.exitStore(visitN, LocalDateTime.now().plusHours(2));
+        visitService.exitStore(visitN, LocalDateTime.now().plusMinutes(30));
 
 
-        Long visitN2 = visitService.entryStore("test2@user.com","test2@store.com",LocalDateTime.now().plusHours(1));
-        visitService.exitStore(visitN2, LocalDateTime.now().plusHours(4));
+        Long visitN2 = visitService.entryStore("test2@user.com","test2@store.com",LocalDateTime.now().plusMinutes(20));
+        visitService.exitStore(visitN2, LocalDateTime.now().plusMinutes(50));
 
 
-        Long visitN3 = visitService.entryStore("admin@bpass.com","test2@store.com",LocalDateTime.now().plusHours(3));
-        visitService.exitStore(visitN3, LocalDateTime.now().plusHours(4));
+        Long visitN3 = visitService.entryStore("admin@bpass.com","test2@store.com",LocalDateTime.now().plusMinutes(40));
+        visitService.exitStore(visitN3, LocalDateTime.now().plusHours(1));
     }
 }
